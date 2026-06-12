@@ -4,8 +4,8 @@ from writer import write_srt, write_vtt
 from exceptions import SubtitleError, FileTypeMismatchError
 
 def main():
-    input_path = "C:/Users/Geo Computer/OneDrive/Desktop/input.vtt"
-    output_path = "C:/Users/Geo Computer/OneDrive/Desktop/output.srt"
+    input_path = "C:/Users/Geo Computer/Downloads/input.vtt"
+    output_path = "C:/Users/Geo Computer/Downloads/output.srt"
 
     if not os.path.exists(input_path):
         print("Error: File does not exist.")
@@ -21,9 +21,7 @@ def main():
             write_srt(cues, output_path)
 
         else:
-            raise FileTypeMismatchError(
-                "Input and output formats are incompatible"
-            )
+            raise FileTypeMismatchError(input_path, output_path)
 
         print("Conversion successful!")
 
